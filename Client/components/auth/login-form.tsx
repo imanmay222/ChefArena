@@ -179,7 +179,7 @@ export function LoginForm() {
         </fieldset>
       </form>
 
-      {/* <div className="flex items-center gap-3" aria-hidden>
+      <div className="flex items-center gap-3" aria-hidden>
         <span className="h-px flex-1 bg-border" />
         <span className="font-mono text-[10px] tracking-[0.18em] text-muted uppercase">
           Phase 1 demo
@@ -187,7 +187,7 @@ export function LoginForm() {
         <span className="h-px flex-1 bg-border" />
       </div>
 
-      <DemoAccounts onSelect={fillDemoAccount} disabled={isPending} /> */}
+      <DemoAccounts onSelect={fillDemoAccount} disabled={isPending} />
     </div>
   );
 }
