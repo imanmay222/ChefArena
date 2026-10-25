@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* Dark is the default theme; the inline script in app/layout.tsx may switch it before paint. */
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --canvas: #0b0d12;
+  --sidebar: #0d1017;
+  --surface: #111621;
+  --elevated: #151b27;
+  --border: #252c3b;
+  --border-strong: #323b4f;
+
+  --primary: #6c5ce7;
+  --primary-hover: #7b6cf0;
+  --primary-foreground: #ffffff;
+  --accent: #9b5cff;
+
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #f43f5e;
+
+  --foreground: #f4f6fc;
+  --muted: #929aaf;
+
+  --grid-line: rgb(255 255 255 / 0.035);
+  --shadow-card: 0 1px 0 rgb(255 255 255 / 0.03) inset, 0 24px 48px -24px rgb(0 0 0 / 0.6);
+
+  --code-plain: #c9cfdd;
+  --code-keyword: #b79cff;
+  --code-fn: #7cc4ff;
+  --code-string: #7ee2a8;
+  --code-number: #f5b76b;
+  --code-comment: #5f6880;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  --canvas: #f5f7fb;
+  --sidebar: #eef1f7;
+  --surface: #ffffff;
+  --elevated: #f8fafc;
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
+
+  --primary: #5b4be8;
+  --primary-hover: #4c3cd8;
+  --primary-foreground: #ffffff;
+  --accent: #7c3aed;
+
+  --success: #16a34a;
+  --warning: #d97706;
+  --danger: #e11d48;
+
+  --foreground: #111827;
+  --muted: #64748b;
+
+  --grid-line: rgb(15 23 42 / 0.05);
+  --shadow-card: 0 1px 2px rgb(15 23 42 / 0.04), 0 16px 40px -24px rgb(15 23 42 / 0.18);
+
+  --code-plain: #334155;
+  --code-keyword: #6d3fd9;
+  --code-fn: #0b6bcb;
+  --code-string: #15803d;
+  --code-number: #b45309;
+  --code-comment: #8a94a6;
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-sidebar: var(--sidebar);
+  --color-surface: var(--surface);
+  --color-elevated: var(--elevated);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+
+  --shadow-card: var(--shadow-card);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+body {
+  background: var(--canvas);
+  color: var(--foreground);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--primary) 35%, transparent);
+}
